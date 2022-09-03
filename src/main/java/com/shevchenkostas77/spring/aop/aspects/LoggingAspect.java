@@ -3,11 +3,13 @@ package com.shevchenkostas77.spring.aop.aspects;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 @Component
 @Aspect
-public class LoggingAndSecurityAspect {
+@Order(10)
+public class LoggingAspect {
 
 //    @Pointcut("execution(* com.shevchenkostas77.spring.aop.UniLibrary.*(..))")
 //    private void allMethodsFromUniLibrary() {
