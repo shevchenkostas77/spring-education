@@ -9,22 +9,22 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class LoggingAndSecurityAspect {
 
-    @Pointcut("execution(* com.shevchenkostas77.spring.aop.UniLibrary.*(..))")
-    private void allMethodsFromUniLibrary() {
-    }
-
-    @Pointcut("execution(public void com.shevchenkostas77.spring.aop.UniLibrary.returnMagazine())")
-    private void returnMagazineFromUniLibrary() {
-    }
-
-    @Pointcut("allMethodsFromUniLibrary() && !returnMagazineFromUniLibrary()")
-    private void allMethodsExceptReturnMagazineFromUniLibrary() {
-    }
-
-    @Before("allMethodsExceptReturnMagazineFromUniLibrary()")
-    public void beforeAllMethodsExceptReturnMagazineFromUniLibrary() {
-        System.out.println("beforeAllMethodsExceptReturnMagazineFromUniLibrary: writing Log #10");
-    }
+//    @Pointcut("execution(* com.shevchenkostas77.spring.aop.UniLibrary.*(..))")
+//    private void allMethodsFromUniLibrary() {
+//    }
+//
+//    @Pointcut("execution(public void com.shevchenkostas77.spring.aop.UniLibrary.returnMagazine())")
+//    private void returnMagazineFromUniLibrary() {
+//    }
+//
+//    @Pointcut("allMethodsFromUniLibrary() && !returnMagazineFromUniLibrary()")
+//    private void allMethodsExceptReturnMagazineFromUniLibrary() {
+//    }
+//
+//    @Before("allMethodsExceptReturnMagazineFromUniLibrary()")
+//    public void beforeAllMethodsExceptReturnMagazineFromUniLibrary() {
+//        System.out.println("beforeAllMethodsExceptReturnMagazineFromUniLibrary: writing Log #10");
+//    }
 
 
 //    @Pointcut("execution(* com.shevchenkostas77.spring.aop.UniLibrary.get*())")
@@ -55,18 +55,18 @@ public class LoggingAndSecurityAspect {
 //    }
 
 
-//    @Pointcut("execution(* get*())")
-//    private void allGetMethods() {}
-//
-//    @Before("allGetMethods()")
-//    public void beforeGetLoggingAdvice() {
-//        System.out.println("beforeGetLoggingAdvice: попытка получить книгу/журнал");
-//    }
-//
-//    @Before("allGetMethods()")
-//    public void beforeGetSecurityAdvice() {
-//        System.out.println("beforeGetSecurityAdvice проверка прав на получение книги/журнала");
-//    }
+    @Pointcut("execution(* get*())")
+    private void allGetMethods() {}
+
+    @Before("allGetMethods()")
+    public void beforeGetLoggingAdvice() {
+        System.out.println("beforeGetLoggingAdvice: попытка получить книгу/журнал");
+    }
+
+    @Before("allGetMethods()")
+    public void beforeGetSecurityAdvice() {
+        System.out.println("beforeGetSecurityAdvice проверка прав на получение книги/журнала");
+    }
 
 //    @Before("execution(public * returnBook())")
 //    public void beforeReturnBookAdvace() {
