@@ -54,19 +54,12 @@ public class LoggingAndSecurityAspect {
 //        System.out.println("beforeGetAndReturnLoggingAdvice: writing Log #3");
 //    }
 
-
-    @Pointcut("execution(* get*())")
-    private void allGetMethods() {}
-
-    @Before("allGetMethods()")
+    @Before("com.shevchenkostas77.spring.aop.aspects.MyPointcuts.allGetMethods()")
     public void beforeGetLoggingAdvice() {
-        System.out.println("beforeGetLoggingAdvice: попытка получить книгу/журнал");
+        System.out.println("beforeGetLoggingAdvice: логирование " +
+                "попытки получить книгу/журнал");
     }
 
-    @Before("allGetMethods()")
-    public void beforeGetSecurityAdvice() {
-        System.out.println("beforeGetSecurityAdvice проверка прав на получение книги/журнала");
-    }
 
 //    @Before("execution(public * returnBook())")
 //    public void beforeReturnBookAdvace() {
