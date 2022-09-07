@@ -21,6 +21,7 @@
       <root url="jar://$PROJECT_DIR$/lib/hibernate-core-5.4.11.Final.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/txw2-2.3.1.jar!/" />
       <root url="jar://$PROJECT_DIR$/../mysql-connector-java-8.0.30/mysql-connector-java-8.0.30.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../aspectjweaver-1.9.6.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
