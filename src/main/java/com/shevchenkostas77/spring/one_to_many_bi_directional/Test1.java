@@ -1,7 +1,8 @@
-package com.shevchenkostas77.spring.hibernate_test_2;
+package com.shevchenkostas77.spring.one_to_many_bi_directional;
 
-import com.shevchenkostas77.spring.hibernate_test_2.entity.Detail;
-import com.shevchenkostas77.spring.hibernate_test_2.entity.Employee;
+
+import com.shevchenkostas77.spring.one_to_many_bi_directional.entity.Department;
+import com.shevchenkostas77.spring.one_to_many_bi_directional.entity.Employee;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -11,61 +12,55 @@ public class Test1 {
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(Employee.class)
-                .addAnnotatedClass(Detail.class)
+                .addAnnotatedClass(Department.class)
                 .buildSessionFactory();
-
-//        try (factory; Session session = factory.getCurrentSession()) {
-////            some code
-//        }
 
         Session session = null;
 
         try {
 //            session = factory.getCurrentSession();
 //
-//            Employee employee = new Employee("Stas", "Shevchenko",
-//                    "IT", 500);
-//            Detail detail = new Detail("Moscow", "123456789",
-//                    "shevchenkostas77@icloud.com");
-//            employee.setEmpDetail(detail);
+//            Department dep= new Department("IT"
+//                    , 300, 1200);
+//            Employee emp1 = new Employee("Stas", "Shevchenko"
+//                    , 800);
+//            Employee emp2 = new Employee("Elena", "Smirnova"
+//                    , 1000);
+//
+//            dep.addEmployeeToDepartment(emp1);
+//            dep.addEmployeeToDepartment(emp2);
 //
 //            session.beginTransaction();
 //
-//            session.save(employee);
+//            session.save(dep);
 //
 //            session.getTransaction().commit();
 //            System.out.println("Done!");
 
-
-//            session = factory.getCurrentSession();
-//
-//            Employee employee = new Employee("Oleg", "Smirnov",
-//                    "Sales", 700);
-//            Detail detail = new Detail("Moscow", "987654321",
-//                    "olejka@gmail.com");
-//            employee.setEmpDetail(detail);
-//
-//            session.beginTransaction();
-//
-//            session.save(employee);
-//
-//            session.getTransaction().commit();
-
-
 //            session = factory.getCurrentSession();
 //            session.beginTransaction();
 //
-//            Employee emp = session.get(Employee.class, 10);
-//            System.out.println(emp.getEmpDetail());
+//            Department dep = session.get(Department.class, 1);
+//            System.out.println(dep);
+//            System.out.println(dep.getEmps());
 //
 //            session.getTransaction().commit();
 //            System.out.println("Done!");
 
+//            session = factory.getCurrentSession();
+//            session.beginTransaction();
+//
+//            Employee emp = session.get(Employee.class, 1);
+//            System.out.println(emp);
+//            System.out.println(emp.getDepartment());
+//
+//            session.getTransaction().commit();
+//            System.out.println("Done!");
 
             session = factory.getCurrentSession();
             session.beginTransaction();
 
-            Employee emp = session.get(Employee.class, 2);
+            Employee emp = session.get(Employee.class, 1);
             session.delete(emp);
 
             session.getTransaction().commit();
