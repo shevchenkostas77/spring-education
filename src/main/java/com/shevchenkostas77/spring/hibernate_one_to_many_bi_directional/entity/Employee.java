@@ -1,7 +1,4 @@
-package com.shevchenkostas77.spring.one_to_many_bi_directional.entity;
-
-import com.shevchenkostas77.spring.hibernate_one_to_one.entity.Detail;
-import org.hibernate.engine.internal.Cascade;
+package com.shevchenkostas77.spring.hibernate_one_to_many_bi_directional.entity;
 
 import javax.persistence.*;
 

@@ -1,8 +1,9 @@
-package com.shevchenkostas77.spring.one_to_many_bi_directional;
+package com.shevchenkostas77.spring.hibernate_one_to_many_uni_directional;
 
 
-import com.shevchenkostas77.spring.one_to_many_bi_directional.entity.Department;
-import com.shevchenkostas77.spring.one_to_many_bi_directional.entity.Employee;
+
+import com.shevchenkostas77.spring.hibernate_one_to_many_uni_directional.entity.Department;
+import com.shevchenkostas77.spring.hibernate_one_to_many_uni_directional.entity.Employee;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -12,7 +13,7 @@ public class Test1 {
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(Employee.class)
-                .addAnnotatedClass(Department.class)
+                .addAnnotatedClass( Department.class)
                 .buildSessionFactory();
 
         Session session = null;
@@ -20,11 +21,11 @@ public class Test1 {
         try {
 //            session = factory.getCurrentSession();
 //
-//            Department dep= new Department("IT"
-//                    , 300, 1200);
-//            Employee emp1 = new Employee("Stas", "Shevchenko"
+//            Department dep= new Department("HR"
+//                    , 500, 1500);
+//            Employee emp1 = new Employee("Oleg", "Ivanov"
 //                    , 800);
-//            Employee emp2 = new Employee("Elena", "Smirnova"
+//            Employee emp2 = new Employee("Andrey", "Sidorov"
 //                    , 1000);
 //
 //            dep.addEmployeeToDepartment(emp1);
@@ -50,9 +51,8 @@ public class Test1 {
 //            session = factory.getCurrentSession();
 //            session.beginTransaction();
 //
-//            Employee emp = session.get(Employee.class, 1);
+//            Employee emp = session.get(Employee.class, 4);
 //            System.out.println(emp);
-//            System.out.println(emp.getDepartment());
 //
 //            session.getTransaction().commit();
 //            System.out.println("Done!");
@@ -60,8 +60,8 @@ public class Test1 {
             session = factory.getCurrentSession();
             session.beginTransaction();
 
-            Employee emp = session.get(Employee.class, 1);
-            session.delete(emp);
+            Department dep = session.get(Department.class, 2);
+            session.delete(dep);
 
             session.getTransaction().commit();
             System.out.println("Done!");
